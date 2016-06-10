@@ -115,6 +115,6 @@ if (mysqli_query($db_link, $sql)) {
 
 
 ?>
-	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zurück</a></h4>
+	<h4><a class="normallink" href="kern.php" name="mainpage" title="Zurueck">Zurück</a></h4>
 
 </div>
