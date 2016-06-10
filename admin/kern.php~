@@ -1,0 +1,48 @@
+<?php
+session_start();
+
+$status = $_SESSION["status"];
+$user =	$_SESSION["user"];
+$clearance = $_SESSION["clearance"];
+
+include "../css/mainstyle.css";
+if (file_exists("connect.php")) {
+require_once ('connect.php');
+} else {
+
+echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
+}
+
+$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent";
+
+// den query an mysql übertragen und anschließend abfragen.
+ 
+$ereg = mysqli_query($db_link, $sql);
+while($row = mysqli_fetch_object($ereg))
+{
+  echo $row->id;
+  echo $row->titel;
+  echo $row->inhalt;
+  echo $row->authoren;
+  echo $row->zeit;
+  echo $row->datum;
+ 
+}
+
+
+
+?>
+<table>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</table>

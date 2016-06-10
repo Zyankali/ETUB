@@ -1,0 +1,154 @@
+<style>
+body {
+        background-color: #F4F8F4;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+}
+
+h1 {
+    color: Black;
+	 text-align: center;
+    
+}
+
+
+h4 {
+    color: red;
+    margin-left: 0px;
+}
+
+div {
+	
+		text-align: left;
+		margin-left: 150px;
+		margin-right: 150px;
+		margin-top: 50px;
+	
+}
+
+.normallink {
+    text-decoration: none;
+    color: red;
+}    
+.normallink:link {
+
+color: red;
+
+}
+.normallink:visited {
+
+text-decoration: none; 
+color: #660000; 
+    
+    } 
+
+.normallink:hover {
+
+color: #ff9999;
+text-decoration: underline;
+
+}
+
+.normallink:active {
+
+text-decoration: none;    
+color: #ff6666;    
+    
+    }
+
+ul {
+	padding: 0px;
+	list-style-type: none;
+	border-style: hidden;
+	background-color: #333;
+	position: fixed;
+	margin-top: 0px;
+	overflow: hidden;
+	
+}
+
+li {
+	text-decoration: none;
+    color: white;
+	float: left;
+
+	}
+
+#linker:link {
+	text-decoration: none;
+	color: white;
+	padding: 14px 16px;
+	background-color: #333;
+	float: left;
+	text-decoration: none;
+	border-right: 1px solid #000000;
+   
+	}
+	
+#linker:visited {
+	text-decoration: none;
+	color: #e1dfdf;
+	background-color: #595959;
+	padding: 14px 16px;
+	float: left;
+
+	}
+	
+#linker:hover {
+    text-decoration: none;
+	color: #9b9b9b;
+	background-color: #1a1a1a;
+	padding: 14px 16px;
+	float: left;
+
+	}
+	
+#linker:active {
+	text-decoration: none;
+	color: #cccccc;
+	background-color: #d9d9d9;
+	padding: 14px 16px;
+	float: left;
+
+	}
+	
+table {
+	
+background-color: #ffffff;
+border: 1px solid black;
+		text-align: left;
+		margin-left: 0px;
+		margin-right: 150px;
+		margin-top: 50px;
+		width: 80%;
+	padding: 15px;		
+	
+}
+
+th.titel {
+    border-bottom: 1px solid #ddd;
+}
+
+#smalltext {
+	
+	font-size: 10px;
+	    border-bottom: 1px solid #ddd;
+	
+}
+
+idler {
+	
+clear: left;
+font-size: 8px;	
+	
+}
+
+titel {
+	
+font-size: 32px;
+
+
+}
+
+</style>
