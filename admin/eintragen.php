@@ -51,7 +51,13 @@ session_destroy();
  
  }
 
- 
+if (file_exists("connect.php")) {
+require_once ('connect.php');
+} else {
+
+echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
+}
+$sql = "DELETE FROM `kontent` WHERE `kontent`.`id` = $delite"; 
  
 
 
