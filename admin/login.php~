@@ -1,7 +1,0 @@
-<?php
-
-include "../css/mainstyle.css";
-
-?>
-
-<h1>Login</h1>
