@@ -67,7 +67,7 @@ Titel<br>
 <textarea name="titel" rows="1" cols="60"></textarea><br><br>
 Hapteintrag<br>
 <textarea name="inhalt" rows="15" cols="60"></textarea><br><br>
-<input type = "submit" value="Eintragen">
+<input type = "submit" value="Eintragen"><h4><a class="normallink" href="kern.php" name="kern" title="Abrechen">Abrechen</a></h4>
 </fieldset>
 </form>
 
