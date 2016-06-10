@@ -57,6 +57,7 @@ require_once ('connect.php');
 
 echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
 }
+// Muss noch angepasst werden!!!
 $sql = "DELETE FROM `kontent` WHERE `kontent`.`id` = $delite"; 
  
 
