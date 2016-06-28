@@ -7,6 +7,7 @@ include "../css/mainstyle.css";
 $status = $_SESSION["status"];
 $user =	$_SESSION["user"];
 $clearance = $_SESSION["clearance"];
+$editid = $_SESSION["seteditid"]; 
 
 
 if (!$clearance OR empty($clearance)){
@@ -36,24 +37,8 @@ session_destroy();
 }
 
 
-$editid = $_GET["editid"];
 
 
- if (!ctype_digit($editid)) {
-	
-			// Alle Session Variablen loeschen
-session_unset();
-
-// Zerstoere die allgemeine Session
-session_destroy();
-	
- die("<div style=\"text-align: left\;\">Unzulässige eingabe!");
- 
- }
-
-// die zu editierenden eintrag in eine Session eintragen
-$_SESSION["seteditid"] = $editid; 
- 
 
  if (!ctype_digit($status)) {
 	
@@ -74,56 +59,55 @@ require_once ('connect.php');
 echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
 } 
 
+$titel = $_POST['titel']; 
+$inhalt = $_POST['inhalt'];
 
 
-$sql = "SELECT titel, inhalt FROM kontent WHERE id = '" . $editid . "' ";
+// entfernt HTML Tags aus dem Titel
+$titel = strip_tags($titel);
+// Wandelt Sonderzeichen in HTML Code um
+$titel = htmlentities($titel);
+// entfernt Backslashes aus dem Titel
+$titel = stripslashes($titel);
+// Ersetzt \n durch HTML Titel
+$titel = nl2br($titel);
 
-// Sichtbarer Seitentitel
+
+// entfernt HTML Tags aus Inhalt
+$inhalt = strip_tags($inhalt);
+// Wandelt Sonderzeichen in HTML Code um
+$inhalt = htmlentities($inhalt);
+// entfernt Backslashes aus dem inhalt
+$inhalt = stripslashes($inhalt);
+// Ersetzt \n durch HTML umbruchzeichen
+$inhalt = nl2br($inhalt); 
+
+
+//Zeitzone und Zeit ermitteln in UNIX formation
+
+date_default_timezone_set("Europe/Berlin");
+$timestamp = time();
+
+// Uhrzeit in var eintragen
+
+$zeit = date("H:i:s",$timestamp);
+
+$datum = date("Y-m-d",$timestamp);
+
+//Titel der Seite
 ?>
-
-<h1>Eintrag Editieren</h1>
+<h1>Eintrag Editiert!</h1>
 
 <?php
 
-$ereg = mysqli_query($db_link, $sql);
-$row = mysqli_fetch_assoc($ereg);
-{
-?>
-<br>
-<br>
-<form action="edit.php"<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"" method="post">
-<fieldset>
-<legend>zu editierender Eintrag</legend>
-Titel<br>
-<textarea name="titel" rows="1" cols="60"><?php 
+// Editierter Eintrag in Datenbank an Spezifischen Punkt aktuallisieren und eintragen
+$sql = "UPDATE kontent SET titel  = '" . $titel . "', inhalt = '" . $inhalt . "', zeit = '" . $zeit . "', datum = '" . $datum . "' WHERE id= '" . $editid ."'";
 
-$row['titel'] = strip_tags($row['titel']);
-$row['titel'] = stripslashes($row['titel']);
-
-
-
-echo $row['titel'];
-
-?>
-
-</textarea><br><br>
-Hapteintrag<br>
-<textarea name="inhalt" rows="15" cols="60"><?php
-
-
-$row['inhalt'] = strip_tags($row['inhalt']);
-$row['inhalt'] = stripslashes($row['inhalt']);
-
-echo $row['inhalt'];
-
-
-
-?></textarea><br><br>
-<input type = "submit" value="Eintragen"><h4><a class="normallink" href="kern.php" name="kern" title="Abrechen">Abrechen</a></h4>
-</fieldset>
-</form>	
-<?php	
-} 
+if (mysqli_query($db_link, $sql)) {
+    echo "Eintrag erfolgreich editiert.";
+} else {
+    echo "Fehler beim Editieren des Eintrags: " . mysqli_error($db_link);
+}
 ?>
 
 <h4><a class="normallink" href="kern.php" name="mainpage" title="Zurueck">Zurück</a></h4>

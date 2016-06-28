@@ -35,9 +35,9 @@ if ($logout == "login") {
 <fieldset>
 <legend>Logindaten:</legend>
 Benutzer:<br>
-<input type = "text" name="user"><br><br>
+<input type = "text" name="user" placeholder="Benutzer"><br><br>
 Passwort:<br>
-<input type = "password" name="password"><br><br>
+<input type = "password" name="password" placeholder="Passwort"><br><br>
 <input type = "submit" value="Login">
 </fieldset>
 </form>
