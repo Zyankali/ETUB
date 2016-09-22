@@ -49,7 +49,7 @@ if (!isset($benutzer) OR empty($benutzer)){
 	<?php
 	echo "Fehlerhafte Eingabe... Wirklich kein Benutzer vorhanden?";
 	?>
-	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zurück</a></h4>
+	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zur&uuml;ck</a></h4>
 	<?php
 	exit;
 }
@@ -62,7 +62,7 @@ if (!isset($passwort) OR empty($passwort)){
 	<br><br>
 	<div style="text-align: left;">
 	Fehler bei der Passworteingabe. Ein leeres Passwort sollte nie gesetzt sein!!!
-	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zurück</a></h4>
+	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zur&uuml;ck</a></h4>
 	<?php
 	exit;
 }	
@@ -120,7 +120,7 @@ if ($row['user'] == $benutzer)
 	<?php
 	echo 'Passwort ist falsch!';
 	?>
-	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zurück</a></h4>
+	<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zur&uuml;ck</a></h4>
 	<?php
 	}
 	

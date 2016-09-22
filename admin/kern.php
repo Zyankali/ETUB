@@ -17,7 +17,7 @@ session_unset();
 // Zerstoere die allgemeine Session
 session_destroy();
 	
-	die("ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verdächtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zurück Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
+	die("ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
 	
 }
 
@@ -65,7 +65,7 @@ echo "<tr>";
 echo "<th class=\"titel\" colspan=\"2\"><idler>" . $row->id . " |</idler> <titel>" . $row->titel . "</titel>";
 echo "</tr>";
 echo "<tr>";
-echo "<th colspan=\"2\"><a id=\"linker\" href=\"editieren.php?editid=" . $row->id . "\" name=\"Eintrag editieren\" title=\"Editieren\">Editieren</a><a id=\"linker\" href=\"loeschen.php?delite=" . $row->id . "\" name=\"Loeschen\" title=\"Loeschen\">Löschen</a> </th>";
+echo "<th colspan=\"2\"><a id=\"linker\" href=\"editieren.php?editid=" . $row->id . "\" name=\"Eintrag editieren\" title=\"Editieren\">Editieren</a><a id=\"linker\" href=\"loeschen.php?delite=" . $row->id . "\" name=\"Loeschen\" title=\"Loeschen\">L&ouml;schen</a> </th>";
 echo "</tr>";
 echo "</table>";
 
@@ -114,7 +114,7 @@ echo "<tr>";
 echo "<th class=\"titel\" colspan=\"2\"><idler>" . $row->id . " |</idler> <titel>" . $row->titel . "</titel>";
 echo "</tr>";
 echo "<tr>";
-echo "<th colspan=\"2\"><a id=\"linker\" href=\"editieren.php?editid=" . $row->id . "\" name=\"Eintrag editieren\" title=\"Editieren\">Editieren</a><a id=\"linker\" href=\"loeschen.php?delite=" . $row->id . "\" name=\"Loeschen\" title=\"Loeschen\">Löschen</a> </th>";
+echo "<th colspan=\"2\"><a id=\"linker\" href=\"editieren.php?editid=" . $row->id . "\" name=\"Eintrag editieren\" title=\"Editieren\">Editieren</a><a id=\"linker\" href=\"loeschen.php?delite=" . $row->id . "\" name=\"Loeschen\" title=\"Loeschen\">L&ouml;schen</a> </th>";
 echo "</tr>";
 echo "</table>";
 

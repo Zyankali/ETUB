@@ -18,7 +18,7 @@ session_unset();
 // Zerstoere die allgemeine Session
 session_destroy();
 	
-	die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verdächtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zurück Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
+	die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
 	
 }
 
@@ -32,7 +32,7 @@ session_unset();
 // Zerstoere die allgemeine Session
 session_destroy();
 	
-	die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verdächtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zurück Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
+	die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
 	
 }
 
@@ -48,7 +48,7 @@ session_unset();
 // Zerstoere die allgemeine Session
 session_destroy();
 	
- die("<div style=\"text-align: left\;\">Unzulässige eingabe!");
+ die("<div style=\"text-align: left\;\">Unzul&auml;ssige eingabe!");
  
  }
 
@@ -110,6 +110,6 @@ if (mysqli_query($db_link, $sql)) {
 }
 ?>
 
-<h4><a class="normallink" href="kern.php" name="mainpage" title="Zurueck">Zurück</a></h4>
+<h4><a class="normallink" href="kern.php" name="mainpage" title="Zurueck">Zur&uuml;ck</a></h4>
 
 </div>
