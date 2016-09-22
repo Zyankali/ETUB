@@ -74,6 +74,15 @@ echo "</table>";
 }
 
 if ($status == "1") {
+
+?>
+
+<br><br>
+<ul>
+  <li><a id="linker" href="login.php?logout=1" name="Loout" title="Abmelden">Logout</a></li>
+</ul>
+
+<?php
 	
 echo "<h1>Adminbereich</h1>";	
 echo "<div style=\"text-align: left\;\"> <br>Eingelogt als: <br>" . $user;
@@ -114,6 +123,15 @@ echo "</table>";
 }
 
 if ($status == "2") {
+	
+?>
+
+<br><br>
+<ul>
+  <li><a id="linker" href="login.php?logout=1" name="Loout" title="Abmelden">Logout</a></li>
+</ul>
+
+<?php	
 	
 echo "<h1>Adminbereich</h1>";	
 echo "<div style=\"text-align: left\;\"> Hallo Moderator<br>Eingelogt als: <br>" . $user;	

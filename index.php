@@ -21,6 +21,7 @@ include "css/mainstyle.css";
 
 <?php
 
+// Der Haupttitel sollte spaeter noch definierbar sein. MySQL tabelleneintrag?
 echo "<h1>EasyToUseBlog</h1>";
 
 ?>

@@ -8,15 +8,13 @@ session_start();
 $datenbankbenutzer         = $_POST['datenbankbenutzer'];
 $datenbankpasswort         = $_POST['datenbankpasswort'];
 $datenbankname         = $_POST['datenbankname'];
-$tabellenname         = $_POST['tabellenname'];
 
-$_SESSION["datenbankname"]         = $datenbankname;
-$_SESSION["tabellenname"]         = $tabellenname;
+$_SESSION['datenbankname']         = $datenbankname;
 
 
 // Variableneinladung der benutzereingaben
-$benutzer = $_SESSION["benutzer"];
-$passwort = $_SESSION["passwort"];
+$benutzer = $_SESSION['benutzer'];
+$passwort = $_SESSION['passwort'];
 
 ?>
 
@@ -167,24 +165,7 @@ if (!isset($datenbankname ) OR empty($datenbankname )){
 
 echo "<br>";
 echo "<br>";
-echo "Tabellenname: ";
 
-// Wenn keine Tabelle genannt wurde,  etub tabelle vormerken lassen
-
-if (!isset($tabellenname ) OR empty($tabellenname )){
-         echo "Kein Tabellenname angegeben!";
-         echo "<br>";
-         echo "Bitte starten Sie die Installationsroutine neu oder belassen Sie das Feld leer. Es wird dann automatisch eine etub haupttabelle erstellt.";
-
-         $_SESSION["tabellenname"] = "etub";
-         }
-         else
-         {
-         echo $tabellenname ;
-         }
-         ;
-
-echo "<br>";
 
 ?>
 </fieldset>

@@ -101,8 +101,6 @@ Datenbank Passwort:<br>
 
 Datenbankname:<br>
 <input type = "text" name="datenbankname" placeholder="Datenbankname"><br><br>
-Tabellenname:<br>
-<input type = "text" name="tabellenname" placeholder="Tabellenanme"><br><br>
 
 <input type = "submit" value="Weiter">
 
