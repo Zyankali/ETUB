@@ -144,7 +144,7 @@ session_unset();
 // Zerstoere die allgemeine Session
 session_destroy();
 ?>
-<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zurück</a></h4>
+<h4><a class="normallink" href="../index.php" name="mainpage" title="Zurueck">Zur&uuml;ck</a></h4>
 <?php
 
 	

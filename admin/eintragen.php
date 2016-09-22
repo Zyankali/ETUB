@@ -56,6 +56,7 @@ $titel = $_POST['titel'];
 $inhalt = $_POST['inhalt'];
 
 
+
 // entfernt HTML Tags aus dem Titel
 $titel = strip_tags($titel);
 // Wandelt Sonderzeichen in HTML Code um
@@ -64,6 +65,7 @@ $titel = htmlentities($titel);
 $titel = stripslashes($titel);
 // Ersetzt \n durch HTML Titel
 $titel = nl2br($titel);
+
 
 
 // entfernt HTML Tags aus Inhalt
