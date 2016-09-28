@@ -7,6 +7,15 @@ $status = $_SESSION["status"];
 $user =	$_SESSION["user"];
 $clearance = $_SESSION["clearance"];
 
+?>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<?php
+
 // Kontrolle der Berechtigung. Wenn zugangsberechtigung verweigert wird oder leer ist wird der Zugriff beendet per Hinweis.
 
 if (!$clearance OR empty($clearance)){

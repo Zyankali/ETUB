@@ -2,14 +2,14 @@
 session_start();
 ?>
 
-
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <title>etub_install</title>
 <meta name="description" content="Installation des ETUBs">
 <meta name="keywords" content="install_etub">
 <meta name="author" content="silentsands">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body text="#000000" bgcolor="#F4F8F4" link="#FF0000" alink="#FF0000" vlink="#FF0000">
 <font size="+4" face="VERDANA,ARIAL,HELVETICA"><p align="center">Installer</p></font>

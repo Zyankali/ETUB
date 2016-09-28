@@ -9,6 +9,14 @@ $user =	$_SESSION["user"];
 $clearance = $_SESSION["clearance"];
 
 
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<?php
+
 if (!$clearance OR empty($clearance)){
 	
 		// Alle Session Variablen loeschen

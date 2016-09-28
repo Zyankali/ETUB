@@ -16,12 +16,13 @@ session_destroy();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <title>index</title>
 <meta name="description" content="installer index">
 <meta name="keywords" content="installer">
 <meta name="author" content="silentsands">
+
 
 </head>
 <body text="#000000" bgcolor="#F4F8F4" link="#FF0000" alink="#FF0000" vlink="#FF0000">

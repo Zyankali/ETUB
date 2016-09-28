@@ -18,15 +18,15 @@ $passwort = $_SESSION['passwort'];
 
 ?>
 
-
-
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <title>Eingaben &Uuml;bersicht</title>
 <meta name="description" content="installer index">
 <meta name="keywords" content="installer">
 <meta name="author" content="silentsands">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 
 </head>
 <body text="#000000" bgcolor="#F4F8F4" link="#FF0000" alink="#FF0000" vlink="#FF0000">
