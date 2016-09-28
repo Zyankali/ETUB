@@ -215,7 +215,7 @@ echo "Ende der Protokolldatei <br>";
 ?>
 
 <p align="left">Sollten keine Fehler auf zu finden sein. So klicken Sie bitte auf den Verweis/Link &quot;Abschluss&quot;.<br>
-Ansonsten wiederholen Sie die Installationsroutine und beachten Sie ihre eintr&auml;ge und die hinweise. <br>
+Ansonsten wiederholen Sie die Installationsroutine und beachten Sie ihre Eintr&auml;ge und die Hinweise. <br>
 Dazu rufen sie einfach den Link &quot;Wiederholen&quot; auf.</p>
 
 <br>
