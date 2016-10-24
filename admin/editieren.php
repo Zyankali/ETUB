@@ -135,6 +135,4 @@ echo $row['inhalt'];
 } 
 ?>
 
-<h4><a class="normallink" href="kern.php" name="mainpage" title="Zurueck">Zur&uuml;ck</a></h4>
-
 </div>
