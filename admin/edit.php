@@ -85,7 +85,7 @@ $titel = nl2br($titel);
 
 
 // entfernt HTML Tags aus Inhalt
-$inhalt = strip_tags($inhalt, '<a>');
+$inhalt = strip_tags($inhalt);
 // Wandelt Sonderzeichen in HTML Code um
 $inhalt = htmlentities($inhalt); 
 // entfernt Backslashes aus dem inhalt
