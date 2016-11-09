@@ -116,11 +116,17 @@ echo $row['titel'];
 ?>
 
 </textarea><br><br>
-Hapteintrag<br>
+Haupteintrag<br>
+<br>
+<idler>
+F&uuml;r BBCode nutzen Sie bitte:<br>
+
+[url]URL[/url] = Verweis |</idler>
+<br>
 <textarea name="inhalt" rows="15" cols="60"><?php
 
 
-$row['inhalt'] = strip_tags($row['inhalt']);
+$row['inhalt'] = strip_tags($row['inhalt'], '<a>');
 $row['inhalt'] = stripslashes($row['inhalt']);
 
 echo $row['inhalt'];

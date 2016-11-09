@@ -85,13 +85,14 @@ $titel = nl2br($titel);
 
 
 // entfernt HTML Tags aus Inhalt
-$inhalt = strip_tags($inhalt);
+$inhalt = strip_tags($inhalt, '<a>');
 // Wandelt Sonderzeichen in HTML Code um
-$inhalt = htmlentities($inhalt);
+$inhalt = htmlentities($inhalt); 
 // entfernt Backslashes aus dem inhalt
 $inhalt = stripslashes($inhalt);
 // Ersetzt \n durch HTML umbruchzeichen
-$inhalt = nl2br($inhalt); 
+$inhalt = nl2br($inhalt);
+
 
 
 //Zeitzone und Zeit ermitteln in UNIX formation

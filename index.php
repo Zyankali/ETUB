@@ -46,6 +46,12 @@ $sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id
 $ereg = mysqli_query($db_link, $sql);
 while($row = mysqli_fetch_object($ereg))
 {
+$inhalt = $row->inhalt;
+
+// URLs aus BBCode [url][/url] erstellen
+$suchmuster = '/[\[url\]]+((http|https|ftp|ftps):\/\/[\w]+.*)\[\/url\]/';
+$ersetzung = '<a href="$1" target="_blank">$1</a>';
+$inhalt = preg_replace($suchmuster, $ersetzung, $inhalt);
 	
 echo "<table>";
 echo "<tr>";
@@ -55,7 +61,8 @@ echo "<tr>";
 echo "<th class=\"titel\" colspan=\"2\"><idler>" . $row->id . " |</idler> <titel>" . $row->titel . "</titel></td>";
 echo "</tr>";
 echo "<tr>";
-echo "<th class=\"inhalt\" colspan=\"2\">" . $row->inhalt . "</th>";
+echo "<th class=\"inhalt\" colspan=\"2\">" . $inhalt . "</th>";
+
 echo "</tr>";
 echo "</table>";
  

@@ -18,29 +18,29 @@ $clearance = $_SESSION["clearance"];
 
 
 if (!$clearance OR empty($clearance)){
-	
-		// Alle Session Variablen loeschen
+
+                // Alle Session Variablen loeschen
 session_unset();
 
 // Zerstoere die allgemeine Session
 session_destroy();
-	
-	die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
-	
+
+        die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
+
 }
 
 // Überprüfen der zugangsberechtigung  des Nutzers.
 
 if ($status > "1" OR !isset($status)){
-	
-		// Alle Session Variablen loeschen
+
+                // Alle Session Variablen loeschen
 session_unset();
 
 // Zerstoere die allgemeine Session
 session_destroy();
-	
-	die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
-	
+
+        die("<div style=\"text-align: left\;\">ZUGRIFF VERWEIGERT!!! Keine Berechtigung! Verd&auml;chtiges Verhalten entdeckt! Laden Sie die Hauptseite neu!<br>Geben Sie die URL neu ein oder gehen Sie per Zur&uuml;ck Funktion ihres Browsers zur Startseite bzw. Hauptseite.");
+
 }
 
 
@@ -48,15 +48,15 @@ session_destroy();
 
 
  if (!ctype_digit($status)) {
-	
-			// Alle Session Variablen loeschen
+
+                        // Alle Session Variablen loeschen
 session_unset();
 
 // Zerstoere die allgemeine Session
 session_destroy();
-	
+
  die("<div style=\"text-align: left\;\">Unzul&auml;ssige eingabe!");
- 
+
  }
 
 
@@ -73,6 +73,11 @@ session_destroy();
 <fieldset>
 <legend>Ihr Eintrag</legend>
 Titel<br>
+<idler>
+F&uuml;r BBCode nutzen Sie bitte:<br>
+
+[url]URL[/url] = Verweis |</idler>
+<br>
 <textarea name="titel" rows="1" cols="60" placeholder="Titel"></textarea><br><br>
 Hapteintrag<br>
 <textarea name="inhalt" rows="15" cols="60" placeholder="Inhalt"></textarea><br><br>

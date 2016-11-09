@@ -83,7 +83,8 @@ $inhalt = htmlentities($inhalt);
 // entfernt Backslashes aus dem inhalt
 $inhalt = stripslashes($inhalt);
 // Ersetzt \n durch HTML umbruchzeichen
-$inhalt = nl2br($inhalt); 
+$inhalt = nl2br($inhalt);
+
 
 
 //Zeitzone und Zeit ermitteln in UNIX formation

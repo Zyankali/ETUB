@@ -50,10 +50,10 @@ $datenbankname = $_SESSION['datenbankname'];
 $sql = "CREATE DATABASE IF NOT EXISTS $datenbankname ";
 if (mysqli_query($conn, $sql)) {
     echo "Datenbank erfolgreich erstellt!";
-	echo "<br>";
+        echo "<br>";
 } else {
     echo "Fehler, beim erstellen der Datenbank: " . $datenbankname . ". " . mysqli_error($conn);
-	die("Bitte &Uuml;berpr&uuml;fen Sie ihre eingaben. Wiederholen Sie die Installationsroutine!");
+        die("Bitte &Uuml;berpr&uuml;fen Sie ihre eingaben. Wiederholen Sie die Installationsroutine!");
 }
 
 ?>
@@ -73,7 +73,7 @@ ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_bin";
 
 if (mysqli_query($conn, $sql)) {
     echo "Tabelle users erfolgreich erstellt.";
-	echo "<br>";
+        echo "<br>";
 } else {
     echo "Fehler bei der Tabellenerstellung: " . mysqli_error($conn);
 }
@@ -97,7 +97,7 @@ ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_bin";
 
 if (mysqli_query($conn, $sql)) {
     echo "Tabelle kontent konnte erfolgreich erstellt werden.";
-	echo "<br>";
+        echo "<br>";
 } else {
     echo "Fehler bei der Tabellenerstellung: " . mysqli_error($conn);
 }
@@ -123,10 +123,10 @@ VALUES ('$benutzer', '$hash', '1')";
 
 if (mysqli_query($conn, $sql)) {
     echo "Benutzer und Passwort erfolgreich eingetragen.";
-	echo "<br>";
+        echo "<br>";
 } else {
     echo "Fehler: " . $sql . "<br>" . mysqli_error($conn);
-	die();
+        die();
 }
 
 
@@ -142,16 +142,16 @@ $datei = fopen("../admin/konfiguration.php", "w") or die("Konfigurationsdatei ko
 
 fwrite($datei, "<?php");
 fwrite($datei, "\n// die Konstanten auslagern in eigene Datei");
-fwrite($datei, "\n// die dann per require_once ('konfiguration.php');"); 
+fwrite($datei, "\n// die dann per require_once ('konfiguration.php');");
 fwrite($datei, "\n// geladen wird.");
-fwrite($datei, "\n"); 
+fwrite($datei, "\n");
 fwrite($datei, "\n// Damit alle Fehler angezeigt werden");
 fwrite($datei, "\nerror_reporting(E_ALL);");
-fwrite($datei, "\n"); 
+fwrite($datei, "\n");
 fwrite($datei, "\n// Zum Aufbau der Verbindung zur Datenbank");
 fwrite($datei, "\n// die Daten erhalten Sie von Ihrem Provider/Anbieter");
 fwrite($datei, "\ndefine ( 'MYSQL_HOST',      'localhost' );");
-fwrite($datei, "\n"); 
+fwrite($datei, "\n");
 fwrite($datei, "\n// bei XAMPP ist der MYSQL_Benutzer: root");
 fwrite($datei, "\ndefine ( 'MYSQL_BENUTZER',  '".$datenbankbenutzer."' );");
 fwrite($datei, "\ndefine ( 'MYSQL_KENNWORT',  '".$datenbankpasswort."' );");
@@ -174,11 +174,11 @@ echo "<br>";
 
 $titelk = "Willkommen zu ihrem EasyToUseBlog";
 
-$inhaltk = "Herzlich willkommen zu ihrem neuen Blog.<br> 
+$inhaltk = "Herzlich willkommen zu ihrem neuen Blog.<br>
 <br>
 Dieser Eintrag hier gibt ihnen noch letzte Informationen im Umgang mit ihrem Blog.
-Es ist nicht m&ouml;glich Bilder ein zu f&uuml;gen, diese M&ouml;glichkeit nebst weiteren wird aber sp&auml;ter noch implementiert werden.<br>
-Aktuell k&ouml;nnen Sie lediglich Texte schreiben. Allerdings k&ouml;nnen Sie dennoch die komplette URL einer Seite oder Datei schreiben. Diese m&uuml;ssen dann Sie und ihre Besucher leider erstmals selber kopieren und in die Adressleiste des Browsers einf&uuml;gen um zur URL zu gelangen. Ob dies eine Seite, Datei oder Bild ist, ist egal.<br>
+Es ist nicht m&ouml;glich Bilder ein zu f&uuml;gen, jedoch Verweise k&ouml;nnen mit hilfe von BBCode [url]Ihr Verweis[/url] nun eingetragen werden. Bilder aber werden sp&auml;ter noch implementiert werden.<br>
+Aktuell k&ouml;nnen Sie lediglich Texte schreiben und Verweise einf&uuml;gen.<br>
 <br>
 Des weiteren sollten Sie den Ordner &quot;installer&quot;  aus ihrem Hauptverzeichnis l&ouml;schen.<br>
 Sollten Sie dabei Probleme haben, k&ouml;nnen Sie sich dabei von einer weiteren Person Assistieren lassen.<br>
@@ -190,24 +190,24 @@ Sollten Sie Fragen oder Anregungen haben so k&ouml;nnen Sie dies auf der ETUB Pr
 Viel Spa&szlig; w&uuml;nscht ihnen,<br>
 <br>
 Florin B.<br>
-alias<br> 
+alias<br>
 Silentsands";
 
 $authorenk = "Silentsands";
 
-$zeitk = "13:30:00";
+$zeitk = "01:38:00";
 
-$datumk = "2016-09-22";
+$datumk = "2016-11-09";
 
 $sql = "INSERT INTO $datenbankname . kontent (titel, inhalt, authoren, zeit, datum)
 VALUES ('$titelk', '$inhaltk', '$authorenk', '$zeitk', '$datumk')";
 
 if (mysqli_query($conn, $sql)) {
     echo "Ersteintrag erfolgreich eingetragen";
-	echo "<br>";
+        echo "<br>";
 } else {
     echo "Fehler: " . $sql . "<br>" . mysqli_error($conn);
-	die();
+        die();
 }
 
 echo "Ende der Protokolldatei <br>";
