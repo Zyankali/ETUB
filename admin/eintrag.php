@@ -76,7 +76,7 @@ Titel<br>
 <idler>
 F&uuml;r BBCode nutzen Sie bitte:<br>
 
-[url]URL[/url] = Verweis |</idler>
+[url]URL[/url] = Verweis | [img]BildURL[/img] = Bild | [uri]BildURL[/uri] = Bild mit Verweis | [thumb]BildURL[/thumb] = Anklickbares Thumbnail </idler>
 <br>
 <textarea name="titel" rows="1" cols="60" placeholder="Titel"></textarea><br><br>
 Hapteintrag<br>
