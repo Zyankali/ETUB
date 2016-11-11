@@ -75,6 +75,7 @@ session_destroy();
 Titel<br>
 <textarea name="titel" rows="1" cols="60" placeholder="Titel"></textarea><br><br>
 Hapteintrag<br>
+<br>
 <idler>
 F&uuml;r BBCode nutzen Sie bitte:<br>
 
