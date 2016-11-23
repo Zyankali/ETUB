@@ -9,6 +9,7 @@ include "css/mainstyle.css";
 <html lang="de">
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!-- // Der Seitentitel sollte noch anpassbar sein dank sql?!? -->
 <title>index</title>
 
 </head>
@@ -39,7 +40,127 @@ require_once ('admin/connect.php');
 echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
 }
 
-$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC";
+/* Seitenermittelung der anzuzeigenden Einträge. Hierbei sind es Pro Seite 20 einträge.*/
+
+if (!isset($_GET['seite']) or empty ($_GET['seite']))
+	
+	{
+		
+		$_GET['seite'] = 1;
+		
+	}
+
+if (!isset($seite))
+	
+	{
+		
+		$seite = 1;
+		
+	}	
+	
+	
+if ($resultat = mysqli_query($db_link, "SELECT inhalt FROM kontent ORDER BY id")) {
+	
+    // Bestimme wie viele eintraege in der Datenbank "kontent" vorhanden ist
+    $row_cnt = mysqli_num_rows($resultat);
+	
+	$a = $row_cnt;
+    // Schließe und gebe Variable $resultat frei
+    mysqli_free_result($resultat);
+}
+
+$seite = $_GET['seite'];
+
+if (!is_numeric ($seite))
+
+{
+	
+	die ("Fehler! Bitte Laden Sie die Seite neu."); 
+	
+}
+
+// Bestimmen wie viele Einträge auf einmal angezeigt werden sollen.
+// Sollte später noch einstellbar sein.
+$seitenanzahl = $a / 20;
+
+
+// Wenn mehr übermittelt wurde als errechnet oder möglich ist oder keine Zahl ermittelt wurde, die "seite" Variable resetten auf eins! Sollte vor den meisten beabischtigten und unbeabsichtigten crashes in dem Fall schützen
+	if (is_int($seite))
+		{
+			
+			$seite = 1;
+			
+		}
+
+if ($seite >= $seitenanzahl + 1)
+	{
+	
+		$seite = 1; 
+		
+		
+	}
+	
+
+// Wenn nur eine Seite ermittelt wurde dann zeige auch nur eine Seite an
+if ($seitenanzahl == "1")
+{
+	
+	echo '<a href="index.php">1</a>'; 
+	
+}
+
+// Wenn mehere Seiten ermittelt wurden dann Zeige Links zu den anderen Seiten an und ermittle den eigenen Seitenzählstand.
+if ($seitenanzahl > "1")
+	
+	{
+		
+	$seitenunten = $seite; 
+		
+	$counta = 1;
+	while($counta < $seite)
+		{
+		echo '<a href="index.php?seite=';
+		echo $counta;
+		echo '"> ';
+		echo $counta;
+		echo ' |</a>';
+		$counta++;
+		}
+	
+	echo " ";
+	echo $seite;
+	echo " ";
+
+	$seitenoben = $seite + 1;
+		
+	while ($seitenoben < $seitenanzahl + 1)
+		
+		{
+		echo '<a href="index.php?seite=';
+		echo $seitenoben;
+		echo '">| ';
+		echo $seitenoben;
+		echo ' </a>';
+		$seitenoben++;
+		}
+
+}
+
+	
+
+if ($seite != "1")
+{
+$eintragsoffset = $seite * 20 - 20;
+}
+else
+{
+	
+	$eintragsoffset = 0;
+	
+}
+
+/* Ende der Seiten und Eintragsermittelung*/ 
+$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT 20 OFFSET $eintragsoffset";
 
 // den query an mysql übertragen und anschließend abfragen.
 
@@ -68,8 +189,10 @@ $suchmusterd = '/[\[thumb\]]+\b((http|https|ftp|ftps):\/\/[\w]+.*(png|jpg|gif))\
 $ersetzungd = '<a href="$1" target="_blank"><img src="$1" alt="Bild" border="1" width="250"></a>';
 $inhalt = preg_replace($suchmusterd, $ersetzungd, $inhalt);
 
-
-
+// Youtube Videos einfuegen.
+$suchmustere = '/\[youtube\]+\b(http|https):\/\/.*\/(watch\?v=|embed\/|)([\w]+)\b\[\/youtube\]/i';
+$ersetzunge = '<iframe width="560" height="315" src="https://www.youtube.com/embed/$3" frameborder="0" allowfullscreen></iframe>';
+$inhalt = preg_replace($suchmustere, $ersetzunge, $inhalt);
 	
 echo "<table>";
 echo "<tr>";

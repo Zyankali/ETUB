@@ -79,7 +79,7 @@ Hapteintrag<br>
 <idler>
 F&uuml;r BBCode nutzen Sie bitte:<br>
 
-[url]URL[/url] = Verweis | [img]BildURL[/img] = Bild | [uri]BildURL[/uri] = Bild mit Verweis | [thumb]BildURL[/thumb] = Anklickbares Thumbnail </idler>
+[url]URL[/url] = Verweis | [img]BildURL[/img] = Bild | [uri]BildURL[/uri] = Bild mit Verweis | [thumb]BildURL[/thumb] = Anklickbares Thumbnail | [youtube]youtubeurl[/youtube] = Youtube Video</idler>
 <br>
 <textarea name="inhalt" rows="15" cols="60" placeholder="Inhalt"></textarea><br><br>
 <input type = "submit" value="Eintragen"><h4><a class="normallink" href="kern.php" name="kern" title="Abrechen">Abrechen</a></h4>
