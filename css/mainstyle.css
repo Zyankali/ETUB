@@ -120,7 +120,7 @@ border: 1px solid black;
 		text-align: left;
 		margin-left: 0px;
 		margin-right: 150px;
-		margin-top: 50px;
+		margin-top: 30px;
 		width: 80%;
 	padding: 15px;		
 	
@@ -132,7 +132,7 @@ th.titel {
 
 #smalltext {
 	
-	font-size: 10px;
+	font-size: 14px;
 	    border-bottom: 1px solid #ddd;
 	
 }
@@ -143,6 +143,7 @@ clear: left;
 font-size: 8px;	
 	
 }
+
 
 titel {
 	
