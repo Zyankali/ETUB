@@ -26,6 +26,8 @@ $datenbankpasswort = $_SESSION["datenbankpasswort"];
 
 // Create connection
 $conn = mysqli_connect($servername, $datenbankbenutzer, $datenbankpasswort);
+// Set the charset as I want to. URF-8 HELL YEA...
+mysqli_set_charset($conn, "utf8");
 
 // Check connection
 if (!$conn) {
@@ -104,6 +106,28 @@ if (mysqli_query($conn, $sql)) {
 
 ?>
 
+<p align="left">Es wird nun versucht die settings Tabelle zu erstellen:</p>
+
+<?php
+
+// sql zur Tabellengenerierung
+$sql = "CREATE TABLE IF NOT EXISTS $datenbankname . settings (
+id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+eintragszahl INT(2) UNSIGNED NOT NULL,
+blogtitel TEXT NOT NULL,
+installstatus INT(1) UNSIGNED NOT NULL
+)
+ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_bin";
+
+if (mysqli_query($conn, $sql)) {
+    echo "Tabelle settings konnte erfolgreich erstellt werden.";
+        echo "<br>";
+} else {
+    echo "Fehler bei der Tabellenerstellung: " . mysqli_error($conn);
+}
+
+?>
+
 <p align="left">Es wird nun versucht die Benutzer und Passworteingaben in die users Tabelle einzutragen:</p>
 
 
@@ -123,6 +147,30 @@ VALUES ('$benutzer', '$hash', '1')";
 
 if (mysqli_query($conn, $sql)) {
     echo "Benutzer und Passwort erfolgreich eingetragen.";
+        echo "<br>";
+} else {
+    echo "Fehler: " . $sql . "<br>" . mysqli_error($conn);
+        die();
+}
+
+
+?>
+
+<p align="left">Es wird nun versucht den Seitentitel und die Anzahl der anzuzeigenden Einträge in die settings Tabelle einzutragen:</p>
+
+
+<?php
+
+$blogtitel = $_SESSION['blogtitel'];
+$eintragszahl = $_SESSION['eintragszahl'];
+
+
+// Nun die Nutzerdaten Benutzer und Passwort eintragen
+$sql = "INSERT INTO $datenbankname . settings (blogtitel, eintragszahl, installstatus)
+VALUES ('$blogtitel', '$eintragszahl', '1')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "Blogtitel und anzahl der Einträge pro Seite erfolgreich eingetragen.";
         echo "<br>";
 } else {
     echo "Fehler: " . $sql . "<br>" . mysqli_error($conn);
@@ -174,18 +222,22 @@ echo "<br>";
 
 $titelk = "Willkommen zu ihrem EasyToUseBlog";
 
-$inhaltk = "Herzlich willkommen zu ihrem neuen Blog.<br>
+$inhaltk = "Herzlich willkommen zu ihrem neuen Blog. Version 0.13.5<br>
 <br>
 Dieser Eintrag hier gibt ihnen noch letzte Informationen im Umgang mit ihrem Blog.
-Es ist nicht m&ouml;glich Bilder ein zu f&uuml;gen, jedoch Verweise k&ouml;nnen mit hilfe von BBCode [url]Ihr Verweis[/url] nun eingetragen werden. Bilder aber werden sp&auml;ter noch implementiert werden.<br>
-Aktuell k&ouml;nnen Sie lediglich Texte schreiben und Verweise einf&uuml;gen.<br>
+
 <br>
-Des weiteren sollten Sie den Ordner &quot;installer&quot;  aus ihrem Hauptverzeichnis l&ouml;schen.<br>
+Sie sollten den Ordner &quot;installer&quot;  aus ihrem Hauptverzeichnis l&ouml;schen.<br>
 Sollten Sie dabei Probleme haben, k&ouml;nnen Sie sich dabei von einer weiteren Person Assistieren lassen.<br>
 <br>
 Des weiteren k&ouml;nnen Sie H&auml;ndisch die &quot;konfiguration.php&quot; Datei editieren und anpassen falls n&ouml;tig, welches sich im Ordner &quot;admin&quot; befindet. Auch hierbei k&ouml;nnen Sie sich von einer weiteren Person Assistieren lassen.<br>
 <br>
-Sollten Sie Fragen oder Anregungen haben so k&ouml;nnen Sie dies auf der ETUB Projektseite auf GitHub eintragen oder schicken Sie mir eine E-Mail an sonictechnologic@gmail.com.<br>
+Sie k&ouml;nnen nun in ihre Eintr&auml;ge Bilder, YoutubeVideos, Thumbnails und Verweise einf&uuml;gen.<br>
+Nat&uuml;rlich k&ouml;nnen Sie immernoch auch einfach etwas schreiben.
+<br>
+Sollten Sie Fragen oder Anregungen haben so k&ouml;nnen Sie dies auf der ETUB Projektseite auf GitHub eintragen<br>
+[url]https://github.com/Zyankali/etub[/url]
+<br> oder schicken Sie mir eine E-Mail an sonictechnologic@gmail.com.<br>
 <br>
 Viel Spa&szlig; w&uuml;nscht ihnen,<br>
 <br>

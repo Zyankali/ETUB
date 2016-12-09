@@ -37,7 +37,7 @@ session_destroy();
 <textarea name="titel" rows="20" cols="60" value="TESTTEXT lalala tralalala lalalala" readonly>EasyToUseBlog
 ETUB
 
-Experimental Version V_0.8.2
+Experimental Version V_0.13.5
 Erstveröffentlichung der Testversion.
 
 Letzte Anmerkungen und Hinweise.
@@ -55,20 +55,9 @@ Dies bedeutet das dieser Blog bereits eingeschränkt nutzbar ist jedoch sind fol
 
 1. Der Code des ETUBs ist nicht optimiert!
 2. Der Code des ETUBs hat sich primär auf Funktionalität ausgerichtet weniger an Sicherheit Standards. Diese werden in einer Späteren Version erweitert und hinzugefügt.
-3. Es ist aktuell noch nicht möglich Bilder mit in die eigenen Einträge im Editor mit ein zu fügen. Dies wird in einer Späteren Version aber möglich sein.
-4. Es handelt sich hierbei derzeit noch um eine Experimentelle Version des ETUBs! Dies bedeutet das auf Nichts eine Garantie gegeben werden kann und wird, es noch nicht für den Produktiven Einsatz zugelassen ist und lediglich zum austesten gedacht ist. Daher behalten Sie im Hinterkopf immer stets das dieser Blog nur Minimale Sicherheit Standards erfüllt und somit noch derzeit leicht die Sicherheitsmaßnahmen umgangen werden könnten. Benutzung auf eigene Gefahr!
+3. Es handelt sich hierbei derzeit noch um eine Experimentelle Version des ETUBs! Dies bedeutet das auf Nichts eine Garantie gegeben werden kann und wird, es noch nicht für den Produktiven Einsatz zugelassen ist und lediglich zum austesten gedacht ist. Daher behalten Sie im Hinterkopf immer stets das dieser Blog nur Minimale Sicherheit Standards erfüllt und somit noch derzeit leicht die Sicherheitsmaßnahmen umgangen werden könnten. Benutzung auf eigene Gefahr!
 
 Weitere zukünftige geplante Implementierungen und Verbesserungen sind als folgt.
-
-- Einsetzen von Bildern in den Einträgen. ( URL Einsetzung & Lokale Einsetzung )
-
-- Mehrnutzer Anwendung, so das mehrere den Blog benutzen können. Zum Beispiel Familienmitglieder.
-
--  Moderation System, Moderatoren die sich ggf. mit um geringere dinge in ihrem Blog kümmern können.
-
-- Kommentar Funktion der Einträge (? Wird derzeit aber noch überprüft. ?)
-
-- API Funktionalität zur Erweiterung der Funktionalität des Blogs durch Dritte (? Wird derzeit aber noch überprüft. ?)
 
 Lizenzierung:
 

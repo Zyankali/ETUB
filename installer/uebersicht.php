@@ -5,9 +5,12 @@ session_start();
 // Einspeichern der Datenbankeingaben
 
 
-$datenbankbenutzer         = $_POST['datenbankbenutzer'];
-$datenbankpasswort         = $_POST['datenbankpasswort'];
-$datenbankname         = $_POST['datenbankname'];
+$datenbankbenutzer        = $_POST['datenbankbenutzer'];
+$datenbankpasswort        = $_POST['datenbankpasswort'];
+$datenbankname            = $_POST['datenbankname'];
+$blogtitel                = $_POST['blogtitel'];
+$eintragszahl             = $_POST['eintragszahl'];
+
 
 $_SESSION['datenbankname']         = $datenbankname;
 
@@ -167,6 +170,35 @@ echo "<br>";
 echo "<br>";
 
 
+//Bei leerem Blogtitel standart Titel setzen EasyToUseBlog
+
+echo "Blogtitel:<br><br>";
+if (!isset($blogtitel ) OR empty($blogtitel )){
+         echo "Kein Blogtitel angegeben!";
+         echo "<br>";
+         echo "Benutze Standart Titel!<br><br>";
+		$_SESSION['blogtitel']         = "EasyToUseBlog";
+}
+// Wenn der Blogtitel genannt wurde wieder geben und in Sessiondatei abspeichern
+if (isset($blogtitel )){
+         echo "Ihr Blogtiel lautet: " . $blogtitel;
+         echo "<br>";
+         echo "Dies kann später in den Einstellungen verändert werden.<br><br>";
+		 $_SESSION['blogtitel']         = $blogtitel;
+}
+
+echo "<br>";
+echo "<br>";
+
+// Einfache ausgabe der gesetzten anzuzeigenden Datenbankeinträge pro Seite mit anschliesender Sessioneintragung.
+echo "Eintragsanzahl:<br><br>";
+
+echo "Ihre gesetzte anzahl der Einträge pro Seite beträgt: " . $eintragszahl ;
+
+$_SESSION['eintragszahl'] = $eintragszahl;
+
+echo "<br>";
+echo "<br>";		 
 ?>
 </fieldset>
 

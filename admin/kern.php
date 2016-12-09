@@ -42,6 +42,7 @@ echo "<h1>Adminbereich</h1>";
 <ul>
   <li><a id="linker" href="login.php?logout=1" name="Loout" title="Abmelden">Logout</a></li>
 </ul>
+<a id="linker" href="einstellungen.php" name="Loout" title="Einstellungen">Einstellungen</a>
 
 <?php
 	
@@ -210,6 +211,7 @@ if ($status == "1") {
 <br><br>
 <ul>
   <li><a id="linker" href="login.php?logout=1" name="Loout" title="Abmelden">Logout</a></li>
+  <li><a id="linker" href="einstellungen.php" name="Loout" title="Einstellungen">Einstellungen</a></li>
 </ul>
 
 <?php

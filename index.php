@@ -9,18 +9,35 @@ include "css/mainstyle.css";
 <html lang="de">
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<!-- // Der Seitentitel sollte noch anpassbar sein dank sql?!? -->
-<title>index</title>
 
+<?php
+
+if (file_exists("admin/connect.php")) {
+require_once ('admin/connect.php');
+} else {
+
+echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
+}
+
+//Blogeinstellungen einladen
+$blogeinstellungen = mysqli_query($db_link, "SELECT blogtitel, eintragszahl FROM settings");
+while($row = mysqli_fetch_object($blogeinstellungen))
+{
+$blogtitel = $row->blogtitel;
+$eintragszahl = $row->eintragszahl;
+}
+
+echo "<title>".$blogtitel."</title>";
+?>
 </head>
 
 <body>
 
 
-<?php
 
-// Der Haupttitel sollte spaeter noch definierbar sein. MySQL tabelleneintrag?
-echo "<h1>EasyToUseBlog</h1>";
+<?php
+// Der Haupttitel
+echo "<h1>".$blogtitel."</h1>";
 
 ?>
 
@@ -33,12 +50,7 @@ echo "<h1>EasyToUseBlog</h1>";
 <div>
 <?php
 
-if (file_exists("admin/connect.php")) {
-require_once ('admin/connect.php');
-} else {
 
-echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
-}
 
 /* Seitenermittelung der anzuzeigenden Einträge. Hierbei sind es Pro Seite 20 einträge.*/
 
@@ -81,7 +93,7 @@ if (!is_numeric ($seite))
 
 // Bestimmen wie viele Einträge auf einmal angezeigt werden sollen.
 // Sollte später noch einstellbar sein.
-$seitenanzahl = $a / 20;
+$seitenanzahl = $a / $eintragszahl;
 
 
 // Wenn mehr übermittelt wurde als errechnet oder möglich ist oder keine Zahl ermittelt wurde, die "seite" Variable resetten auf eins! Sollte vor den meisten beabischtigten und unbeabsichtigten crashes in dem Fall schützen
@@ -150,7 +162,7 @@ if ($seitenanzahl > "1")
 
 if ($seite != "1")
 {
-$eintragsoffset = $seite * 20 - 20;
+$eintragsoffset = $seite * $eintragszahl - $eintragszahl;
 }
 else
 {

@@ -101,6 +101,16 @@ Datenbank Passwort:<br>
 Datenbankname:<br>
 <input type = "text" name="datenbankname" placeholder="Datenbankname"><br><br>
 
+Blog Titelname:<br>
+<input type = "text" name="blogtitel" placeholder="Blog Tielname"><br><br>
+
+Anzahl der anzuzeigenden Einträge:<br>
+  <input type="radio" name="eintragszahl" value="10" > 10<br>
+  <input type="radio" name="eintragszahl" value="15" > 15<br>
+  <input type="radio" name="eintragszahl" value="20" checked> 20 (empfohlen)<br>
+  <input type="radio" name="eintragszahl" value="30" > 30<br>
+  <input type="radio" name="eintragszahl" value="50" > 50<br>
+
 <input type = "submit" value="Weiter">
 
 <h4><a class="normallink" href="index.php" name="installer" title="Abrechen">Abrechen</a></h4>
