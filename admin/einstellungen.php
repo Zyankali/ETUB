@@ -82,6 +82,6 @@ Anzahl der anzuzeigenden Einträge:<br>
 
 <input type = "submit" value="Weiter">
 
-<h4><a class="normallink" href="index.php" name="installer" title="Abrechen">Abrechen</a></h4>
+<h4><a class="normallink" href="kern.php" name="Adminbereich" title="Abrechen">Abrechen</a></h4>
 </fieldset>
 </form>
