@@ -61,6 +61,15 @@ require_once ('connect.php');
 echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
 }
 
+
+//Blogeinstellungen einladen hierbei nur die anzahl der anzuzeigenden Eintraege
+$blogeinstellungen = mysqli_query($db_link, "SELECT eintragszahl FROM settings");
+while($row = mysqli_fetch_object($blogeinstellungen))
+{
+$eintragszahl = $row->eintragszahl;
+}
+
+
 /* Seitenermittelung der anzuzeigenden Einträge. Hierbei sind es Pro Seite 20 einträge.*/
 
 if (!isset($_GET['seite']) or empty ($_GET['seite']))
@@ -102,7 +111,7 @@ if (!is_numeric ($seite))
 
 // Bestimmen wie viele Einträge auf einmal angezeigt werden sollen.
 // Sollte später noch einstellbar sein.
-$seitenanzahl = $a / 20;
+$seitenanzahl = $a / $eintragszahl;
 
 
 // Wenn mehr übermittelt wurde als errechnet oder möglich ist oder keine Zahl ermittelt wurde, die "seite" Variable resetten auf eins! Sollte vor den meisten beabischtigten und unbeabsichtigten crashes in dem Fall schützen
@@ -171,7 +180,7 @@ if ($seitenanzahl > "1")
 
 if ($seite != "1")
 {
-$eintragsoffset = $seite * 20 - 20;
+$eintragsoffset = $seite * $eintragszahl - $eintragszahl;
 }
 else
 {
@@ -180,7 +189,7 @@ else
 	
 }
 
-$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT 20 OFFSET $eintragsoffset";
+$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT $eintragszahl OFFSET $eintragsoffset";
 
 // den query an mysql übertragen und anschließend abfragen.
 
@@ -232,6 +241,15 @@ require_once ('connect.php');
 echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
 }
 
+
+//Blogeinstellungen einladen hierbei nur die anzahl der anzuzeigenden Eintraege
+$blogeinstellungen = mysqli_query($db_link, "SELECT eintragszahl FROM settings");
+while($row = mysqli_fetch_object($blogeinstellungen))
+{
+$eintragszahl = $row->eintragszahl;
+}
+
+
 /* Seitenermittelung der anzuzeigenden Einträge. Hierbei sind es Pro Seite 20 einträge.*/
 
 if (!isset($_GET['seite']) or empty ($_GET['seite']))
@@ -273,7 +291,7 @@ if (!is_numeric ($seite))
 
 // Bestimmen wie viele Einträge auf einmal angezeigt werden sollen.
 // Sollte später noch einstellbar sein.
-$seitenanzahl = $a / 20;
+$seitenanzahl = $a / $eintragszahl;
 
 
 // Wenn mehr übermittelt wurde als errechnet oder möglich ist oder keine Zahl ermittelt wurde, die "seite" Variable resetten auf eins! Sollte vor den meisten beabischtigten und unbeabsichtigten crashes in dem Fall schützen
@@ -342,7 +360,7 @@ if ($seitenanzahl > "1")
 
 if ($seite != "1")
 {
-$eintragsoffset = $seite * 20 - 20;
+$eintragsoffset = $seite * $eintragszahl - $eintragszahl;
 }
 else
 {
@@ -351,7 +369,9 @@ else
 	
 }
 
-$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT 20 OFFSET $eintragsoffset";
+/* Ende der Seiten und Eintragsermittelung*/
+
+$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT $eintragszahl OFFSET $eintragsoffset";
 
 // den query an mysql übertragen und anschließend abfragen.
 

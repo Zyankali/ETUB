@@ -120,7 +120,7 @@ $datenbankbenutzer = "root";
 $_SESSION["datenbankbenutzer"] = "root";
 
 }
-
+echo "<br>";
 echo "Datenbank Benutzer: " . $datenbankbenutzer;
 
 $_SESSION["datenbankbenutzer"] = $datenbankbenutzer;

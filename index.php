@@ -172,7 +172,7 @@ else
 }
 
 /* Ende der Seiten und Eintragsermittelung*/
-$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT 20 OFFSET $eintragsoffset";
+$sql = "SELECT id, titel, inhalt, authoren, zeit, datum FROM kontent ORDER BY id DESC LIMIT $eintragszahl OFFSET $eintragsoffset";
 
 // den query an mysql übertragen und anschließend abfragen.
 
@@ -220,6 +220,9 @@ echo "</tr>";
 echo "</table>";
 
 }
+
+//MySQL verbindung trennen.
+mysqli_close($db_link);
 
 ?>
 </div>

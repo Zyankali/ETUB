@@ -104,7 +104,7 @@ Datenbankname:<br>
 Blog Titelname:<br>
 <input type = "text" name="blogtitel" placeholder="Blog Tielname"><br><br>
 
-Anzahl der anzuzeigenden Einträge:<br>
+Anzahl der anzuzeigenden Eintr&auml;ge:<br>
   <input type="radio" name="eintragszahl" value="10" > 10<br>
   <input type="radio" name="eintragszahl" value="15" > 15<br>
   <input type="radio" name="eintragszahl" value="20" checked> 20 (empfohlen)<br>

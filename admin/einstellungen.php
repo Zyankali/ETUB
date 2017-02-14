@@ -31,8 +31,8 @@ session_destroy();
 }
 
 // Verbindung zur Datenbank herstellen
-if (file_exists("admin/connect.php")) {
-require_once ('admin/connect.php');
+if (file_exists("connect.php")) {
+require_once ('connect.php');
 } else {
 
 echo "Fehler: Konnte keine Verbindung zur Datenbank herstellen.";
@@ -43,6 +43,7 @@ $blogeinstellungen = mysqli_query($db_link, "SELECT blogtitel, eintragszahl FROM
 while($row = mysqli_fetch_object($blogeinstellungen))
 {
 $blogtitel = $row->blogtitel;
+
 $eintragszahl = $row->eintragszahl;
 }
 
@@ -56,18 +57,21 @@ echo "<h1>Einstellungen</h1>";
 <br><br>
 <ul>
   <li><a id="linker" href="login.php?logout=1" name="Loout" title="Abmelden">Logout</a></li>
+  <li><a id="linker" href="einstellungen.php" name="Loout" title="Einstellungen">Einstellungen</a></li>
 </ul>
-<a id="linker" href="einstellungen.php" name="Loout" title="Einstellungen">Einstellungen</a>
+
 
 
 <!--Formular für die Einstellungen-->
 
-<form action="uebersicht.php" method="post">
+<form action="einstellungen_update.php" method="post">
 <fieldset>
 <legend>Datenbank Einstellungen:</legend>
 
 Blog Titelname:<br>
-<input type = "text" name="blogtitel" placeholder="Blog Tielname"><br><br>
+<input type = "text" name="blogtitel" value="
+<?php echo "$blogtitel"; ?>
+"><br><br>
 
 Anzahl der anzuzeigenden Einträge:<br>
   <input type="radio" name="eintragszahl" value="10" > 10<br>
